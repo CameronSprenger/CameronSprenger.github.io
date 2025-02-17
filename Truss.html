@@ -92,8 +92,37 @@
 										<p>Formulation<br />
 										</p>
 									</header>	
-									<p>Born and raised in Boulder, Colorado I have a passion for spending time in the outdoors, whether that be biking during the summer or skiing in the winter. 
+									<p>
+										The truss structure must have all forces at the nodes summing to zero and stress in the trusses less than the yield stress.
+										To turn the constraints into matrix form some formulation is needed. Each node can theoretically connect with any one of the other 
+										nodes, making there a possible 24,090 connections in the grid, and within the trusses there are equal and opposite forces acting on 
+										each end. In matrix form it looks as follows where U is the internal force in the truss. 
+									</br>
+									</br>
+										<head>
+											<meta charset="UTF-8">
+											<meta name="viewport" content="width=device-width, initial-scale=1.0">
+											<style>
+												.image-container {
+													text-align: center; /* Centers the image */
+												}
+											</style>
+											<title>Center Image</title>
+										</head>
+										<body>
 										
+											<div class="image-container">
+												<img src="images/LinProg/IntForce.png" alt="A beautiful scenery"height="170" width="700" />
+												<figcaption>Formulation for the possible internal forces in each truss. "U" indicates the force, 
+													and the subscript specifies the number of the connected nodes. U<sub>2,1</sub> is the force in the truss from node 2 to 1. </figcaption>
+											</div>
+										
+										</body>
+
+									</br>
+										The internal forces are then broken down into their euclidean components such that force balance can be 
+										calculated in the x and y directions.  
+
 									</p>
 								</div>
 							</section>
