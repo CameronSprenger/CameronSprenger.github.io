@@ -165,12 +165,113 @@
 									<body>
 									
 										<div class="image-container">
-											<img src="images/LinProg/Yield.png" alt="A beautiful scenery"height="90" width="120" />
+											<img src="images/LinProg/Yield.png" alt="A beautiful scenery"height="110" width="150" />
 										</div>
 									</body>
-									slkdfgjdsfg
+									A truss will be "turned on" if the connection between two nodes has an internal force that acts to support the external load. Now, if 
+									the matrices were solved as is, there would be quite a few trusses that have very small internal loads and therefore would not be a good use of 
+									materials. By taking advantage of the L1 norm, the trusses with very small internal forces can by nudged to 0 since the weighting penalty of the L1
+									norm moves small values to 0 compared to larger values. This leaves only the trusses that are under significant stress in the truss structure resulting 
+									in a more efficient material allocation. Auxiliary variables are needed to minimize the L1 norm since force values can be both positive and negative. 
+									By using auxiliary variables, the cost function changes from minimizing the unknown directly, and instead changes to the minimization of the auxiliary variables. 
+									In matrix form, the L1 norm with the auxiliary
+									variables looks as follows.  
 								</br>
-							</br>
+								</br>
+								<head>
+									<meta charset="UTF-8">
+									<meta name="viewport" content="width=device-width, initial-scale=1.0">
+									<style>
+										.image-container {
+											text-align: center; /* Centers the image */
+										}
+									</style>
+									<title>Center Image</title>
+								</head>
+								<body>
+								
+									<div class="image-container">
+										<img src="images/LinProg/Auxilary.png" alt="A beautiful scenery"height="90" width="195" />
+									</div>
+								</body>
+
+
+								The last constraint that needs to be formulated is a length penalty since longer trusses are more susceptible to buckling and typically more expensive
+								per unit length compared to shorter ones. A simple way to add a penalty to the cost function is to multiply the length of the truss by its internal 
+								stress. This acts to remove longer trusses even if they are under a large load and instead replace it with multiple shorter trusses. The matrices 
+								change from the previously shown matrix with identities, to the following with the length miltiplied back in. 
+							<br>
+							<br>
+								<head>
+									<meta charset="UTF-8">
+									<meta name="viewport" content="width=device-width, initial-scale=1.0">
+									<style>
+										.image-container {
+											text-align: center; /* Centers the image */
+										}
+									</style>
+									<title>Center Image</title>
+								</head>
+								<body>
+								
+									<div class="image-container">
+										<img src="images/LinProg/LengthPen.png" alt="A beautiful scenery"height="90" width="290" />
+									</div>
+								</body>
+								<header class="major">
+									<h2></h2>
+									<p>Results<br />
+									</p>
+								</header>	
+								The formulation of the problem and constraints is now complete, so in order to solve the problem in MATLAB with <i>linprog</i>, the formulated
+								matrices are combined into a single A and b matrix and ran through the function. <br><br>The output is a vector that containts the force information for the trusses in the final structure. 
+								Trusses under tension are shown in red and trusses under compression are shown in blue. All trusses are idealized and massless and connected via pin connections. There are only interactions
+								between trusses that share nodes, so trusses that cross are considered to be in different planes. 
+
+								<head>
+									<meta charset="UTF-8">
+									<meta name="viewport" content="width=device-width, initial-scale=1.0">
+									<style>
+										.image-container {
+											text-align: center; /* Centers the image */
+										}
+									</style>
+									<title>Center Image</title>
+								</head>
+								<body>
+								
+									<div class="image-container">
+										<img src="images/LinProg/PenalizedStructure.png" alt="A beautiful scenery"height="350" width="600" />
+										<figcaption>Final truss structure with externally applied force. Trusses under tension are shown in red, and trusses under compression are blue. </figcaption>
+									</div>
+								</body>
+								<br>
+								<head>
+									<meta charset="UTF-8">
+									<meta name="viewport" content="width=device-width, initial-scale=1.0">
+									<style>
+										.image-container {
+											text-align: center; /* Centers the image */
+										}
+									</style>
+									<title>Center Image</title>
+								</head>
+								<body>
+								
+									<div class="image-container">
+										<img src="images/LinProg/NonPenStruc.png" alt="A beautiful scenery"height="350" width="585" />
+										<figcaption>Truss structure with the length penalty removed. Far fewer trusses used, but unrealistic in a real application.</figcaption>
+									</div>
+								</body>
+
+								<header class="major">
+									<h2></h2>
+									<p>Project Report<br />
+									</p>
+								</header>
+								If you are in need of a page turner or would like something to read while in a meeting, please take a look at the full project report below. 
+								</br>
+								</br>
 									<head>
 										<meta charset="UTF-8">
 										<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -178,9 +279,7 @@
 									</head>
 									<body>
 									
-										<h1>Full Project Report</h1>
-										<iframe src="images/LinProg/Optimal_Project__2.pdf" width="600" height="500"></iframe>
-									
+										<iframe src="images/LinProg/Optimal_Project__2.pdf" width="700" height="580"></iframe>
 									</body>
 
 								</div>
