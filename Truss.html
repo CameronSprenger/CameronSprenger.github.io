@@ -24,7 +24,7 @@
 				</header>
 				<nav id="nav">
 					<ul>
-						<li><a href="index.html" class="active">Back to Main Page</a></li>
+						<li><a href="Optimal.html" class="active">Back to Optimal Projects</a></li>
 						
 					</ul>
 				</nav>
@@ -43,51 +43,133 @@
 				<!-- Main -->
 					<div id="main">
 
-						
-						<section id="three">
-							<div class="container">
-								<h3>Optimal Design Projects</h3>
-								<p>Optimal Design was a graduate level computational class focused on convex optimization and linear programming in MATLAB. We covered
-									least squares regression and its application from line fitting to classification techniques by developing a hand-written 
-									character classifier trained on the mnist dataset. We then worked with linear programming and geometry of optimization to solve
-									problems from structural truss design to sudoku. 
-
-								</p>
-								<div class="features">
-									
-									<article>
-										<a href="Truss.html" class="image"><img src="images/LinProg/PenalizedStructure.png" alt="" /></a>
-										<div class="inner">
-											<h4>Linear Programming Truss Optimization Structure </h4>
-											<p>Linear program written in MATLAB that optimizes the material allocation cost function for a given applied load.  </p>
-										</div>
-									</article>
-									<article>
-										<a href="QuadProg.html" class="image"><img src="images/QuadProg/Margin.png" alt="" /></a>
-										<div class="inner">
-											<h4>Quadratic Programming Hand-Written Character Classifier</h4>
-											<p>Multiclass classification quadratic program trained on the mnist dataset. Classifies hand-written numbers from 0 to 9 using a directed acyclic decision-making tree. </p>
-										</div>
-									</article>
-									<article>
-										<a href="Sudoku.html" class="image"><img src="images/Sudoku/Sudoku.png" alt="" /></a>
-										<div class="inner">
-											<h4>Integer Linear Programming Sudoku Solver </h4>
-											<p>Linear program designed to solve row, column, and block constraints of Sudoku by forcing an integer output. </p>
-										</div>
-									</article>
-									<article>
-										<a href="LeastSquares.html" class="image"><img src="images/Least Squares/RawNumbers.png" alt="" /></a>
-										<div class="inner">
-											<h4>Least Squares Classifier </h4>
-											<p>Least squares handwritten digit classifier with a one-vs-rest decision tree trained on the mnist dataset. </p>
-										</div>
-									</article>
+						<!-- One -->
+							<section id="one">
+								<div class="image main" data-position="center">
+									<img src="images/Profile Picture/Banner.jpg" alt="" />
 								</div>
-							</div>
-						</section>
+								<div class="container">
+									<header class="major">
+										<h2>Truss Structure Optimization</h2>
+										<p>Project Overview<br />
+										</p>
+									</header>
+									<p>For this project I generated a truss structure with the most efficient use of materials
+										given an applied force and anchor locations. The efficiency of the material usage is defined in a cost function which is formulated
+										to output the desired results by minimizing c<sup>T</sup>x. Various material 
+										properties can be added to the cost function, like buckling and yield stress, by changing certain terms in the cost function. 
+										<br/>
+										<br/>
+										For this problem all of the trusses are joined with pin connections 
+										to elimiate the need for bending moment terms, and all truss members have the same material properties and cross sections. 
+										The problem is set up such that there is a grid of possible points the trusses can connect at which greatly reduces the computational 
+										load at the slight cost of accuracy. Three points on the y-axis are considered to be idealized anchor points that can provide any reaction forces
+										the truss structure, and an externally applied load is the force the truss structure needs to support. <br/>
 
+										<head>
+											<meta charset="UTF-8">
+											<meta name="viewport" content="width=device-width, initial-scale=1.0">
+											<style>
+												.image-container {
+													text-align: center; /* Centers the image */
+												}
+											</style>
+											<title>Center Image</title>
+										</head>
+										<body>
+										
+											<div class="image-container">
+												<img src="images/LinProg/BlankGrid.png" alt="A beautiful scenery"height="270" width="450" />
+												<figcaption>11 x 20 working grid for the problem with the 3 anchors on the left and the applied force on the right. Trusses can connect
+													at nodes. </figcaption>
+											</div>
+										
+										</body>
 
+										</p>
+									<header class="major">
+										<h2></h2>
+										<p>Formulation<br />
+										</p>
+									</header>	
+									<p>Born and raised in Boulder, Colorado I have a passion for spending time in the outdoors, whether that be biking during the summer or skiing in the winter. 
+										
+									</p>
+								</div>
+							</section>
+
+						<!-- Two -->
+						 <!--
+							<section id="two">
+								<div class="container">
+									<h3>Things I Can Do</h3>
+									<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer lorem ipsum dolor sit amet.</p>
+									<ul class="feature-icons">
+										<li class="icon solid fa-code">Write all the code</li>
+										<li class="icon solid fa-cubes">Stack small boxes</li>
+										<li class="icon solid fa-book">Read books and stuff</li>
+										<li class="icon solid fa-coffee">Drink much coffee</li>
+										<li class="icon solid fa-bolt">Lightning bolt</li>
+										<li class="icon solid fa-users">Shadow clone technique</li>
+									</ul>
+								</div>
+							</section>
+						-->
+						<!-- Three -->
+						 <!--
+							<section id="three">
+								<div class="container">
+									<h3>A Few Accomplishments</h3>
+									<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
+									<div class="features">
+										<article>
+											<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
+											<div class="inner">
+												<h4>Possibly broke spacetime</h4>
+												<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
+											</div>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
+											<div class="inner">
+												<h4>Terraformed a small moon</h4>
+												<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
+											</div>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
+											<div class="inner">
+												<h4>Snapped dark matter in the wild</h4>
+												<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
+											</div>
+										</article>
+									</div>
+								</div>
+							</section>
+						-->
+						<!-- Four -->
+						 <!--
+							<section id="four">
+								<div class="container">
+									<h3>Contact Me</h3>
+									<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
+									<form method="post" action="#">
+										<div class="row gtr-uniform">
+											<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
+											<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
+											<div class="col-12"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
+											<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
+											<div class="col-12">
+												<ul class="actions">
+													<li><input type="submit" class="primary" value="Send Message" /></li>
+													<li><input type="reset" value="Reset Form" /></li>
+												</ul>
+											</div>
+										</div>
+									</form>
+								</div>
+							</section>
+						-->
 						<!-- Five -->
 						<!--
 							<section id="five">
