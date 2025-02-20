@@ -24,7 +24,7 @@
 				<nav id="nav">
 					<ul>
 						<li><a href="index.html" class="active">Back to Main Page</a></li>
-						
+											
 					</ul>
 				</nav>
 				<footer>
@@ -48,18 +48,19 @@
 									<img src="images/Profile Picture/Banner.jpg" alt="" />
 								</div>
 								<div class="container">
+									
+								</br>
+									<header class="major">
 									<header class="major">
 										<h2>CU Bioastronautics</h2>
-										
-										<h3>Tilt-Translation Sled (TTS)</h3>
-										
+										<p>Tilt-Translation Sled (TTS)<br />
 										</p>
 									</header>
-									<p>The Tilt-Translation Sled is a device donated by the Neuroscience Laboratory of NASA Johnson Space Center. 
-										It is capable of administering motions in the roll tilt and X-axis translation. The goal of the experiment is to measure 
-										spatial awareness relying solely on their vestibular senses over the duration of a motion profile. Motion stimuli can be 
-										administered in a variety of profiles (i.e. sinusoidal, sigmoidal, etc.) and at various frequencies. 
-										<br>
+									
+									<p>The Tilt-Translation Sled is a device donated by the Neuroscience Laboratory of NASA Johnson Space Center.
+                                        It is capable of administering motions in the roll tilt and X-axis translation. The goal of the experiment is to measure
+                                        spatial awareness relying solely on their vestibular senses over the duration of a motion profile. Motion stimuli can be
+                                        administered in a variety of profiles (i.e. sinusoidal, sigmoidal, etc.) and at various frequencies.</p>
 										
 										<head>
 											<meta charset="UTF-8">
@@ -74,23 +75,59 @@
 										<body>
 										
 											<div class="image-container">
-												<img src="images/BioAstro/TTS_external.png" alt="A beautiful scenery"height="350" width="600" />
-												<figcaption>Tilt-Translation Sled on magnetic linear actuators. Our very tolerant test dummy Randy is strapped in and ready for a run.    </figcaption>
+												<img src="images/BioAstro/TTS_external.png" alt="A beautiful scenery"height="370" width="650" />
+												<figcaption>Tilt-Translation Sled on magnetic linear actuators. Our very tolerant test dummy Randy is strapped in and ready for a run.</figcaption>
 												<br>
-												
-												<img src="images/BioAstro/TTS_Internal.avif" alt="A beautiful scenery"height="350" width="400" />
-												<figcaption>The inside of the TTS is blacked out to remove any visual cues for roll orientation. Roll axis about the subjects vestibular system.     </figcaption>
+                                               
+                                                <img src="images/BioAstro/TTS_Internal.avif" alt="A beautiful scenery"height="350" width="380" />
+                                                <figcaption>The inside of the TTS is blacked out to remove any visual cues for roll orientation. Roll axis is about the subjects vestibular system.     </figcaption>
 											</div>
+										
 										</body>
 										<br>
+
+										I joined this project a few years into its lifetime so my role was focused on development and maintainance of the sub-systems.
+                                        In an effort to expand the testing capabilities of the TTS, I was in charge of the addition of a modular input device that collects
+                                        user data during the duration of the experiment. There were preexisting 1/2" threaded holes that supported all-thread over the subject head.
+                                        I used these as a structural base for a tablet running test software the subject interacts with. I was only given a few constraints
+                                        and considerations to work within, so I had to create a design from sctratch. One of my main focuses when I was in the early
+                                        stages of ideating was the work flow and ease of use. The point of the device was to be quickly changed back and forth between experiments
+                                        so I had to consider rapid mounting solutions.
+
+										<head>
+											<meta charset="UTF-8">
+											<meta name="viewport" content="width=device-width, initial-scale=1.0">
+											<style>
+												.image-container {
+													text-align: center; /* Centers the image */
+												}
+											</style>
+											<title>Center Image</title>
+										</head>
+										<body>
 										
-										I joined this project a few years into its lifetime so my role was focused on development and maintainance of the sub-systems. 
-										In an effort to expand the testing capabilities of the TTS, I was in charge of the addition of a modular input device that collects 
-										user data during the duration of the experiment. There were preexisting 1/2" threaded holes that supported all-thread over the subject head. 
-										I used these as a structural base for a tablet running test software the subject interacts with. I was only given a few constraints 
-										and considerations to work within, so I had to create a design from sctratch. One of my main focuses when I was in the early 
-										stages of ideating was the work flow and ease of use. The point of the device was to be quickly changed back and forth between experiments 
-										so I had to consider rapid mounting solutions. 
+											<div class="image-container">
+												<img src="images/BioAstro/TTS_IO.png" alt="A beautiful scenery"height="370" width="650" />
+												<figcaption>Modular input mount designed to fit on 1/2" all-thread. Designed to be serviceable and reliable to the demands of testing. </figcaption>
+												<br>
+                                            </div>
+										
+										</body>
+										<br>
+										A few key design features of the modular mounted device are the magnetic closure latches, the replaceable mounting stand-offs, and the
+                                        bump stop hinge. Each feature increases work flow or reduces maintainance time if a part were to break. The ieda behind the magnetic latch closure
+										was a solution to quickly access the inside of the housing while still holding the tablet tightly inside. To open the case, the latches are 
+										easily lifted up and out of the way, while still maintaining a strong enough closure force to hold the tablet in. The bump stop hinges provided a 
+										physical end to the range of motion of the housing so it would not interfere as the operator changed devices between experiments. The largest design 
+										feature that the device housing had was the replaceable mounting stand offs. Since the housing was 3-D printed and quite large, if something were to 
+										happen to the case, a new part could be printed off individually, saving many hours of manufacturing. 
+										<br>
+										<br>
+										During my time working with the lab, the singe largest hiccup the TTS experienced was the shearing of the mounting bolts that fixed the air bearings to 
+										the main chassis. The specifications for the flatness of the operating track are a delta of 0.0002” per foot, yet our track was far from this which 
+										resulted in immense shearing forces as the bearing moved across the track. On a few occasions the suport bolt would shear during a run leaving the 
+										air bearing unsupported and free to impact other components of the TTS.   
+
 										<br>
 										<br>
 										<head>
@@ -106,11 +143,790 @@
 										<body>
 										
 											<div class="image-container">
-												<img src="images/BioAstro/TTS_IO.png" alt="A beautiful scenery"height="350" width="600" />
-												<figcaption> Modular input mount designed to fit on 1/2" all-thread. Designed to be serviceable and reliable to the demands of testing.  </figcaption>
-											</div>
-										</body>
+												<img src="images/BioAstro/AirBearing.jpg" alt="A beautiful scenery"height="400" width="350" />
+												<figcaption>Air bearing on self-leveling epoxy. Smaller torsional support bolt susceptible to shearing.  </figcaption>
+												<br>
+                                            </div>
 										
-									sdfg dgr
+										</body>
+										I worked with a couple grad students to design a better support system for the air bearing to treat the symptom of the irregular
+										floor. Initially I performed an analysis on the motion and forces on the bolt to determine what kind of load the new support structure would 
+										need to withstand. This fix was meant to be temporary while we addressed the issue of the floor flatness. To quantify the flatness of the track, I 
+										made a fixture that held a precise level and used thin metal shims to find the difference in height between points on the track. We marked out high 
+										and low points in the track surface and treated the areas accordingly through careful sanding. 
+										<br>
+										<br>
+										<head>
+											<meta charset="UTF-8">
+											<meta name="viewport" content="width=device-width, initial-scale=1.0">
+											<style>
+												.image-container {
+													text-align: center; /* Centers the image */
+												}
+											</style>
+											<title>Center Image</title>
+										</head>
+										<body>
+										
+											<div class="image-container">
+												<img src="images/BioAstro/Bearing_FEA.png" alt="A beautiful scenery"height="400" width="650" />
+												<figcaption>Initial displacement simulation of the air bearing from surface interactions between the track.   </figcaption>
+												<br>
+                                            </div>
+										
+										</body>
+
+
+
+										<header class="major">
+									
+									</br>
+									
+										<h2></h2>
+										<p>Vestibular Immobilizer- Roto Chair<br />
+										</p>
+									</header>	
+									<p> 
+										Anoter set of experiments the lab was running was spatial awareness test in the vertical (yaw) axis. This experiment was run 
+										on a VR chair capable of programmable rotational profiles. The experiment was also centered around isolating the vestibular
+										system, so the test subjects head had to be fixed in a known and repeatable location for the data to be valid. I was in charge
+										of designing a system that would integrate with the existing mounts in the VR chair, and comfortably support the subjects head during the 
+										experiment.    
+										<br />
+										<br />
+										<head>
+											<meta charset="UTF-8">
+											<meta name="viewport" content="width=device-width, initial-scale=1.0">
+											<style>
+												.image-container {
+													text-align: center; /* Centers the image */
+												}
+											</style>
+											<title>Center Image</title>
+										</head>
+										<body>
+										
+											<div class="image-container">
+												<img src="images/BioAstro/Mount2.jpg" alt="A beautiful scenery"height="450" width="650" />
+												<figcaption>First mock up of the faceplate layout. I liked the look of this, but the output audio jack still needed to be added. </figcaption>
+											</div>
+										
+										</body>
+										<br />
+										A small feature you may have noticed in the model above is the 4 flat head screws holding the faceplate to the main chassis
+										of the amplifier. I chose to use these because in Swiss watches, tiny flat head screws are used to join the internal components, 
+										so it is yet another element I drew inspiration from in the design of the amplifier. After a bit of diggin in some 
+										parts bins, I found 4 flat head shoulder bolts that were the correct size I was looking for and looked premium to match the aesthetic. 
+										<br />
+										<br />
+										<head>
+											<meta charset="UTF-8">
+											<meta name="viewport" content="width=device-width, initial-scale=1.0">
+											<style>
+												.image-container {
+													text-align: center; /* Centers the image */
+												}
+											</style>
+											<title>Center Image</title>
+										</head>
+										<body>
+										
+											<div class="image-container">
+												<img src="images/AesDes/FlatHead.jpg" alt="A beautiful scenery"height="300" width="650" />
+												<figcaption>Example of flat head screws in mechanical watches providing a sleek, clean aesthetic by sitting flush with the surface.  </figcaption>
+											</div>
+										
+										</body>
+										<br />
+										<section id="fab">
+										<h2></h2>
+										<p>Fabrication and Manufacturing<br />
+										</p>
+									</header>
+									
+									<p> 
+										Traditionally, the finish is applied to parts by passing an abrasive disk back and forth on a special mill that is slightly off tram. 
+										Tram being thedifference in perpendicularity of the rotating axis and the perpendicular from the part. By doing so, only one side of the abrasive disk
+										makes contact with the part leaving a narrow streak of texture on the part. If the mill were to be perfectly tramed, each subsequent pass
+										would be passing over a surface that has already been abraded. This was my first speed bump I encountered as the machine shop mills were perfectly 
+										tramed, and changing the alignment would take many hours to do. I came up with the idea of making passes with a face mill and stepping down each pass from the last by the smallest 
+										amount the DRO could resolve. This worked out to be a difference of .0005". This solution was not ideal as one side of the piece would be marginally thinner
+										than the other, and there would be a slighty slope across the piece, but the total difference ammounted to only a few thousandths of an inch which was 
+										imperceivable.
+
+										<head>
+											<meta charset="UTF-8">
+											<meta name="viewport" content="width=device-width, initial-scale=1.0">
+											<style>
+												.image-container {
+													text-align: center; /* Centers the image */
+												}
+											</style>
+											<title>Center Image</title>
+										</head>
+										<body>
+										
+											<div class="image-container">
+												<img src="images/AesDes/Test_Piece.jpg" alt="A beautiful scenery"height="350" width="550" />
+												<img src="images/AesDes/Vert_Test.jpg" alt="A beautiful scenery"height="350" width="450" />
+												<figcaption>Test parts with the côtes de Genève finish, both in vertical and horizontal orientation to see which fit the aesthetic more. 
+													Line width set to .35" for both. 
+												</figcaption>
+											</div>
+										
+										</body>
+									</br> 
+
+									Once I astablished the finish was possible and looked true to form, I began preparing the stock aluminum by cutting and facing all 6 sides
+									to a rough piece slightly larger than the final dimensions. Once this was complete I programmed the mill operations in MasterCAM to then upload
+									onto the machine. The complex nature of the rounded edges and circular cutouts for recessed knobs meant almost nothing was possible by hand and 
+									required the aid of a CAM program.</br>  
+								</br>  
+								
+									<head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/AesDes/Faced_PLate.jpg" alt="A beautiful scenery"height="350" width="250" />
+											<img src="images/AesDes/CAM.jpg" alt="A beautiful scenery"height="350" width="465" />
+											<figcaption>Roughly cut stock aluminum and MasterCAM tool path visualization. </figcaption>
+										</div>
+									
+									</body>
+								</br>
+									The faceplate was designed to fit onto an existing housing for an amplifier, so the mounting hardware had to match the hole pattern and thread type of the 
+									case. The shoulder bolts that I found were the wrong dimension and thread type, so they had to be machined down on a lathe. The shoulder length was shortened, and the threads were
+								removed and threaded to an M4. The potentiometers that the knobs mounted to had different length shafts which meant their further mounting on the 
+								existing case was limited. This meant I had to account for the difference in mounting by having a negative space on the back side of the faceplate to have the 
+								knobs sit on the same plane. You can see the slight cutouts behind the knob cutouts in the MasterCAM figure. 
+								</br>
+								</br>
+
+									<head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/AesDes/Knobs.jpg" alt="A beautiful scenery"height="420" width="620" />
+											<figcaption>Knob features, mounting holes, and potentiometer cutouts completed. </figcaption>
+										</div>
+									</body>
+								</br>
+								The test pieces I made went smoothly when adding the surface finsh, but I ran into my second and largest challenge of the project when trying
+								to add it to the faceplate. The smaller test pieces fit into the vice over its entire length, but the faceplate metal was longer and protruded from the ends of the vice
+								leaving a few inches on each side cantilevered out. Although only a slight amount, the vibrations and flex from the face mill completely changed the 
+								characteristics of the passes resulting in an uneven ugly finish. Even when I added material supports below each side, the issue remained. Since I was 
+								working on the final piece and was removing material on each pass, I had to be mindful of the total thickness of the part and how the features and alignment 
+								would change if I kept making unnecessary passes. I tried horizontal and vertical stripes, but both kept failing which was quite worrying. Eventually I 
+								added a second vice to the mill and secured the piece along most of its length which added enough support to keep vibrations and deflexion to a minimum. 
+								This along with vertical passes that were shorter were the key to producing the finish I was after with the technique I was using. 
+								</p>
+								<head>
+									<meta charset="UTF-8">
+									<meta name="viewport" content="width=device-width, initial-scale=1.0">
+									<style>
+										.image-container {
+											text-align: center; /* Centers the image */
+										}
+									</style>
+									<title>Center Image</title>
+								</head>
+								<body>
+								
+									<div class="image-container">
+										<img src="images/AesDes/Error.jpg" alt="A beautiful scenery"height="420" width="620" />
+										<figcaption>The uneven surface finish of the part after a few passes. The face mill would lose contact and not remove some material 
+											on the half thou passes. </figcaption>
+									</div>
+								</body>
+							</br>
+								<head>
+									<meta charset="UTF-8">
+									<meta name="viewport" content="width=device-width, initial-scale=1.0">
+									<style>
+										.image-container {
+											text-align: center; /* Centers the image */
+										}
+									</style>
+									<title>Center Image</title>
+								</head>
+								<body>
+								
+									<div class="image-container">
+										<img src="images/AesDes/Vertical.jpg" alt="A beautiful scenery"height="420" width="620" />
+										<figcaption>After multiple days in the machine shop tweaking the fixture and set up, the Côtes de Genève stipes took shape. The line width increased from .35" on the 
+											test pieces to .75" on the final faceplate for aesthetic purposes. </figcaption>
+									</div>
+								</body>
+							
+							<head>
+								<meta charset="UTF-8">
+								<meta name="viewport" content="width=device-width, initial-scale=1.0">
+								<title>Center Video</title>
+								<style>
+								  .video-container {
+									display: flex;
+									justify-content: center;  /* Horizontally centers the video */
+									align-items: center;      /* Vertically centers the video */
+									height: 100vh;            /* Makes the container full height of the viewport */
+								  }
+							  
+								  video {
+									max-width: 100%;  /* Ensures the video doesn't overflow */
+									height: auto;     /* Maintains the video's aspect ratio */
+								  }
+								</style>
+							  </head>
+							  <body>
+							  
+								<div class="video-container">
+								  <video controls>
+									<source src="Videos/AesDes/Video.mp4" type="video/mp4">
+									Your browser does not support the video tag.
+								  </video>
+								
+								</div>						  
+							  </body>
+							  
+							 Finished surface on the faceplate. Turned out incredible and without noticable surface imperfections. The machining marks 
+							 in the metal were so small that it gave the faceplate an iridescent look to it at certain viewing angles. Since the faceing paths overlapped
+							 and only left the sides of the cut exposed, the light interacts and reflects back differently as you move past it which was an unintentional 
+							 side effect of the vertical stripes, but it makes the amplifier much more dynamic to look at as it catches and captivates viewers. 
+
+							</br>
+						</br>
+							All that remained was finishing the outer border of the piece. This includes rounding the corners and adding a champfer to the front edge.  
+								Additional MasterCAM code was uploaded and the front surface was protected with a layer of painters tape to protect from chips and other scratches. 
+								After proceeding extremely carefully, the finalized faceplate was ready to be installed onto the rest of the amplifier case. 
+							</br>
+						 	</br>
+
+
+								<head>
+									<meta charset="UTF-8">
+									<meta name="viewport" content="width=device-width, initial-scale=1.0">
+									<style>
+										.image-container {
+											text-align: center; /* Centers the image */
+										}
+									</style>
+									<title>Center Image</title>
+								</head>
+								<body>
+								
+									<div class="image-container">
+										<img src="images/AesDes/Finished_Plate.jpg" alt="A beautiful scenery"height="650" width="520" />
+										<figcaption>Final faceplate ready for installation onto the amp case. The bolts were counter sunk and sat slightly protruded for aesthetic purposes. 
+										</br>(I crashed in a crit if you were wondering about my bloodied hand) </figcaption>
+									</div>
+								</body>
+							</br>
+								The last custom part of the amplifier case that needed to be completed was the back I/O panel which houses all the power, inputs, and some outsputs.
+							I added two XLR outputs to drive external speakers if needed, as well as 4 RCA inputs which is more than enough. I machined out the holes for the 
+							connectors from engineering drawings online and located them based off of the PCB they mounted to. No special care needed to be taken to connect the 
+							connectors since they mounth through a hole from both sides. No tapping or the such was needed, just a hole of the correct diameter.   
+						</br>
+					</br>
+							<head>
+								<meta charset="UTF-8">
+								<meta name="viewport" content="width=device-width, initial-scale=1.0">
+								<style>
+									.image-container {
+										text-align: center; /* Centers the image */
+									}
+								</style>
+								<title>Center Image</title>
+							</head>
+							<body>
+							
+								<div class="image-container">
+									<img src="images/AesDes/IO_Panel.jpg" alt="A beautiful scenery"height="450" width="620" />
+									<figcaption>From left to right: 4 RCA inputs, 2 balanced XLR outputs, power input.			 </figcaption>
+								</div>
+							</body>
+
+							<header class="major">
+									
+							</br>
+							
+								<h2></h2>
+								<p>Final Product<br />
+								</p>
+							</header>	
+							The internal electronic of the amplifier were part of a complete system my dad had sitting around as a project he never got around to. 
+							This made assembling the amp much easier as it was just a matter of attatching the various PCBs to the base plate, back I/O, and faceplate, which was
+							made easier by designing the parts to be compatible. Aluminum feet elevated the amp and matched the color fo the faceplate completing the look of the amplifier.
+							As a way of showing off all the hard work spent through the year, the class held an exposition to showcase the wide range of projects people worked on. 
+						</br>
+					</br>
+							<head>
+								<meta charset="UTF-8">
+								<meta name="viewport" content="width=device-width, initial-scale=1.0">
+								<style>
+									.image-container {
+										text-align: center; /* Centers the image */
+									}
+								</style>
+								<title>Center Image</title>
+							</head>
+							<body>
+							
+								<div class="image-container">
+									<img src="images/AesDes/Finished_Amp.jpg" alt="A beautiful scenery"height="450" width="620" />
+									<figcaption>Amplifier during the exposition with the top plate removed to show the internals. 			 </figcaption>
+								</div>
+							</body>
+							<br/>
+							<br/>
+							<br/>
+							<figcaption>Full project posts and other course work can be found 
+								<a href="https://www.aesdes.org/author/aav2023casp6217/">HERE.</a>
+
+							</section>
+						
+							 
+						
+						<!-- Two -->
+						 <!--
+							<section id="two">
+								<div class="container">
+									<h3>Things I Can Do</h3>
+									<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer lorem ipsum dolor sit amet.</p>
+									<ul class="feature-icons">
+										<li class="icon solid fa-code">Write all the code</li>
+										<li class="icon solid fa-cubes">Stack small boxes</li>
+										<li class="icon solid fa-book">Read books and stuff</li>
+										<li class="icon solid fa-coffee">Drink much coffee</li>
+										<li class="icon solid fa-bolt">Lightning bolt</li>
+										<li class="icon solid fa-users">Shadow clone technique</li>
+									</ul>
 								</div>
 							</section>
+						-->
+						<!-- Three -->
+						 <!--
+							<section id="three">
+								<div class="container">
+									<h3>A Few Accomplishments</h3>
+									<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
+									<div class="features">
+										<article>
+											<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
+											<div class="inner">
+												<h4>Possibly broke spacetime</h4>
+												<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
+											</div>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
+											<div class="inner">
+												<h4>Terraformed a small moon</h4>
+												<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
+											</div>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
+											<div class="inner">
+												<h4>Snapped dark matter in the wild</h4>
+												<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
+											</div>
+										</article>
+									</div>
+								</div>
+							</section>
+						-->
+						<!-- Four -->
+						 <!--
+							<section id="four">
+								<div class="container">
+									<h3>Contact Me</h3>
+									<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
+									<form method="post" action="#">
+										<div class="row gtr-uniform">
+											<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
+											<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
+											<div class="col-12"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
+											<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
+											<div class="col-12">
+												<ul class="actions">
+													<li><input type="submit" class="primary" value="Send Message" /></li>
+													<li><input type="reset" value="Reset Form" /></li>
+												</ul>
+											</div>
+										</div>
+									</form>
+								</div>
+							</section>
+						-->
+						<!-- Five -->
+						<!--
+							<section id="five">
+								<div class="container">
+									<h3>Elements</h3>
+
+									<section>
+										<h4>Text</h4>
+										<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+										This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+										This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
+										<hr />
+										<header>
+											<h4>Heading with a Subtitle</h4>
+											<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+										</header>
+										<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+										<header>
+											<h5>Heading with a Subtitle</h5>
+											<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+										</header>
+										<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+										<hr />
+										<h2>Heading Level 2</h2>
+										<h3>Heading Level 3</h3>
+										<h4>Heading Level 4</h4>
+										<h5>Heading Level 5</h5>
+										<h6>Heading Level 6</h6>
+										<hr />
+										<h5>Blockquote</h5>
+										<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
+										<h5>Preformatted</h5>
+										<pre><code>i = 0;
+
+while (!deck.isInOrder()) {
+    print 'Iteration ' + i;
+    deck.shuffle();
+    i++;
+}
+
+print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
+									</section>
+
+									<section>
+										<h4>Lists</h4>
+										<div class="row">
+											<div class="col-6 col-12-xsmall">
+												<h5>Unordered</h5>
+												<ul>
+													<li>Dolor pulvinar etiam magna etiam.</li>
+													<li>Sagittis adipiscing lorem eleifend.</li>
+													<li>Felis enim feugiat dolore viverra.</li>
+												</ul>
+												<h5>Alternate</h5>
+												<ul class="alt">
+													<li>Dolor pulvinar etiam magna etiam.</li>
+													<li>Sagittis adipiscing lorem eleifend.</li>
+													<li>Felis enim feugiat dolore viverra.</li>
+												</ul>
+											</div>
+											<div class="col-6 col-12-xsmall">
+												<h5>Ordered</h5>
+												<ol>
+													<li>Dolor pulvinar etiam magna etiam.</li>
+													<li>Etiam vel felis at lorem sed viverra.</li>
+													<li>Felis enim feugiat dolore viverra.</li>
+													<li>Dolor pulvinar etiam magna etiam.</li>
+													<li>Etiam vel felis at lorem sed viverra.</li>
+													<li>Felis enim feugiat dolore viverra.</li>
+												</ol>
+												<h5>Icons</h5>
+												<ul class="icons">
+													<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+													<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+													<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+													<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+													<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+													<li><a href="#" class="icon brands fa-tumblr"><span class="label">Tumblr</span></a></li>
+												</ul>
+											</div>
+										</div>
+										<h5>Actions</h5>
+										<ul class="actions">
+											<li><a href="#" class="button primary">Default</a></li>
+											<li><a href="#" class="button">Default</a></li>
+											<li><a href="#" class="button alt">Default</a></li>
+										</ul>
+										<ul class="actions small">
+											<li><a href="#" class="button primary small">Small</a></li>
+											<li><a href="#" class="button small">Small</a></li>
+											<li><a href="#" class="button alt small">Small</a></li>
+										</ul>
+										<div class="row">
+											<div class="col-3 col-6-medium col-12-xsmall">
+												<ul class="actions stacked">
+													<li><a href="#" class="button primary">Default</a></li>
+													<li><a href="#" class="button">Default</a></li>
+													<li><a href="#" class="button alt">Default</a></li>
+												</ul>
+											</div>
+											<div class="col-3 col-6 col-12-xsmall">
+												<ul class="actions stacked">
+													<li><a href="#" class="button primary small">Small</a></li>
+													<li><a href="#" class="button small">Small</a></li>
+													<li><a href="#" class="button alt small">Small</a></li>
+												</ul>
+											</div>
+											<div class="col-3 col-6-medium col-12-xsmall">
+												<ul class="actions stacked">
+													<li><a href="#" class="button primary fit">Default</a></li>
+													<li><a href="#" class="button fit">Default</a></li>
+													<li><a href="#" class="button alt fit">Default</a></li>
+												</ul>
+											</div>
+											<div class="col-3 col-6-medium col-12-xsmall">
+												<ul class="actions stacked">
+													<li><a href="#" class="button primary small fit">Small</a></li>
+													<li><a href="#" class="button small fit">Small</a></li>
+													<li><a href="#" class="button alt small fit">Small</a></li>
+												</ul>
+											</div>
+										</div>
+									</section>
+
+									<section>
+										<h4>Table</h4>
+										<h5>Default</h5>
+										<div class="table-wrapper">
+											<table>
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Description</th>
+														<th>Price</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>Item One</td>
+														<td>Ante turpis integer aliquet porttitor.</td>
+														<td>29.99</td>
+													</tr>
+													<tr>
+														<td>Item Two</td>
+														<td>Vis ac commodo adipiscing arcu aliquet.</td>
+														<td>19.99</td>
+													</tr>
+													<tr>
+														<td>Item Three</td>
+														<td> Morbi faucibus arcu accumsan lorem.</td>
+														<td>29.99</td>
+													</tr>
+													<tr>
+														<td>Item Four</td>
+														<td>Vitae integer tempus condimentum.</td>
+														<td>19.99</td>
+													</tr>
+													<tr>
+														<td>Item Five</td>
+														<td>Ante turpis integer aliquet porttitor.</td>
+														<td>29.99</td>
+													</tr>
+												</tbody>
+												<tfoot>
+													<tr>
+														<td colspan="2"></td>
+														<td>100.00</td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+
+										<h5>Alternate</h5>
+										<div class="table-wrapper">
+											<table class="alt">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Description</th>
+														<th>Price</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>Item One</td>
+														<td>Ante turpis integer aliquet porttitor.</td>
+														<td>29.99</td>
+													</tr>
+													<tr>
+														<td>Item Two</td>
+														<td>Vis ac commodo adipiscing arcu aliquet.</td>
+														<td>19.99</td>
+													</tr>
+													<tr>
+														<td>Item Three</td>
+														<td> Morbi faucibus arcu accumsan lorem.</td>
+														<td>29.99</td>
+													</tr>
+													<tr>
+														<td>Item Four</td>
+														<td>Vitae integer tempus condimentum.</td>
+														<td>19.99</td>
+													</tr>
+													<tr>
+														<td>Item Five</td>
+														<td>Ante turpis integer aliquet porttitor.</td>
+														<td>29.99</td>
+													</tr>
+												</tbody>
+												<tfoot>
+													<tr>
+														<td colspan="2"></td>
+														<td>100.00</td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+									</section>
+
+									<section>
+										<h4>Buttons</h4>
+										<ul class="actions">
+											<li><a href="#" class="button primary">Primary</a></li>
+											<li><a href="#" class="button">Default</a></li>
+											<li><a href="#" class="button alt">Alternate</a></li>
+										</ul>
+										<ul class="actions">
+											<li><a href="#" class="button primary large">Large</a></li>
+											<li><a href="#" class="button">Default</a></li>
+											<li><a href="#" class="button alt small">Small</a></li>
+										</ul>
+										<ul class="actions fit">
+											<li><a href="#" class="button primary fit">Fit</a></li>
+											<li><a href="#" class="button fit">Fit</a></li>
+											<li><a href="#" class="button alt fit">Fit</a></li>
+										</ul>
+										<ul class="actions fit small">
+											<li><a href="#" class="button primary fit small">Fit + Small</a></li>
+											<li><a href="#" class="button fit small">Fit + Small</a></li>
+											<li><a href="#" class="button alt fit small">Fit + Small</a></li>
+										</ul>
+										<ul class="actions">
+											<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
+											<li><a href="#" class="button icon solid fa-download">Icon</a></li>
+											<li><a href="#" class="button alt icon solid fa-check">Icon</a></li>
+										</ul>
+										<ul class="actions">
+											<li><span class="button primary disabled">Primary</span></li>
+											<li><span class="button disabled">Default</span></li>
+											<li><span class="button alt disabled">Alternate</span></li>
+										</ul>
+									</section>
+
+									<section>
+										<h4>Form</h4>
+										<form method="post" action="#">
+											<div class="row gtr-uniform">
+												<div class="col-6 col-12-xsmall">
+													<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
+												</div>
+												<div class="col-6 col-12-xsmall">
+													<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
+												</div>
+												<div class="col-12">
+													<select name="demo-category" id="demo-category">
+														<option value="">- Category -</option>
+														<option value="1">Manufacturing</option>
+														<option value="1">Shipping</option>
+														<option value="1">Administration</option>
+														<option value="1">Human Resources</option>
+													</select>
+												</div>
+												<div class="col-4 col-12-medium">
+													<input type="radio" id="demo-priority-low" name="demo-priority" checked>
+													<label for="demo-priority-low">Low Priority</label>
+												</div>
+												<div class="col-4 col-12-medium">
+													<input type="radio" id="demo-priority-normal" name="demo-priority">
+													<label for="demo-priority-normal">Normal Priority</label>
+												</div>
+												<div class="col-4 col-12-medium">
+													<input type="radio" id="demo-priority-high" name="demo-priority">
+													<label for="demo-priority-high">High Priority</label>
+												</div>
+												<div class="col-6 col-12-medium">
+													<input type="checkbox" id="demo-copy" name="demo-copy">
+													<label for="demo-copy">Email me a copy of this message</label>
+												</div>
+												<div class="col-6 col-12-medium">
+													<input type="checkbox" id="demo-human" name="demo-human" checked>
+													<label for="demo-human">I am a human and not a robot</label>
+												</div>
+												<div class="col-12">
+													<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+												</div>
+												<div class="col-12">
+													<ul class="actions">
+														<li><input type="submit" value="Send Message" /></li>
+														<li><input type="reset" value="Reset" class="alt" /></li>
+													</ul>
+												</div>
+											</div>
+										</form>
+									</section>
+
+									<section>
+										<h4>Image</h4>
+										<h5>Fit</h5>
+										<span class="image fit"><img src="images/banner.jpg" alt="" /></span>
+										<div class="box alt">
+											<div class="row gtr-50 gtr-uniform">
+												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+											</div>
+										</div>
+										<h5>Left &amp; Right</h5>
+										<p><span class="image left"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+										<p><span class="image right"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+									</section>
+
+								</div>
+							</section>
+						-->
+
+					</div>
+
+				<!-- Footer -->
+					<section id="footer">
+						<div class="container">
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved.</li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html> 
