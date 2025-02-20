@@ -10,36 +10,35 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="icon" href="images/MyFace.jpeg" type="image/jpeg">
+        <link rel="icon" href="images/MyFace.jpeg" type="image/jpeg">
 	</head>
 	<body class="is-preload">
 
 		<!-- Header -->
-			<section id="header">
-				<header>
-					<span class="image avatar"><img src="images/Profile Picture/file.png" alt="" /></span>
-					<h1 id="logo"><a href="#">Cameron Sprenger</a></h1>
-					<p>Mechanical Engineering Master's Graduate- CU Boulder
-						
-					</p>
-				</header>
-				<nav id="nav">
-					<ul>
-						<li><a href="Optimal.html" class="active">Back to Optimal Projects</a></li>
-						
-					</ul>
-				</nav>
-				<footer>
-				
-					<p>Contact:</p>
-					<ul class="icons">
-						
-						<li><a href="https://www.linkedin.com/in/cameron-s-a28989138/" class="fab fa-linkedin"><span class="label"></span></a></li>
-						
-					</ul>
-					casp6217@colorado.edu
-				</footer>
-			</section>
+		<section id="header">
+			<header>
+				<span class="image avatar"><img src="images/Profile Picture/file.png" alt="" /></span>
+				<h1 id="logo"><a href="#">Cameron Sprenger</a></h1>
+				<p>Mechanical Engineering Master's Graduate- CU Boulder
+					
+			</header>
+			<nav id="nav">
+				<ul>
+					<li><a href="index.html" class="active">Back to Main Page</a></li>
+										
+				</ul>
+			</nav>
+			<footer>
+			
+				<p>Contact:</p>
+				<ul class="icons">
+					
+					<li><a href="https://www.linkedin.com/in/cameron-s-a28989138/" class="fab fa-linkedin"><span class="label"></span></a></li>
+					
+				</ul>
+				casp6217@colorado.edu
+			</footer>
+		</section>
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -54,238 +53,25 @@
 								</div>
 								<div class="container">
 									<header class="major">
-										<h2>Truss Structure Optimization</h2>
-										<p>Project Overview<br />
+										<h2>About Me</h2>
+										<p>Hobbies and nterest<br />
 										</p>
 									</header>
-									<p>For this project I generated a truss structure with the most efficient use of materials
-										given an applied force and anchor locations. The efficiency of the material usage is defined in a cost function which is formulated
-										to output the desired results by minimizing c<sup>T</sup>x. Various material 
-										properties can be added to the cost function, like buckling and yield strength, by changing certain terms in the cost function.
-										The <i>linprog</i> function in MATLAB takes in inputs c, A, b and minimizes c<sup>T</sup>x subject to Ax=b. 
-										<br/>
-										<br/>
-										For this problem all of the trusses are joined with pin connections 
-										to elimiate the need for bending moment terms, and all truss members have the same material properties and cross sections. 
-										The problem is set up such that there is a grid of possible points the trusses can connect at which greatly reduces the computational 
-										load at the slight cost of accuracy. Three points on the y-axis are considered to be idealized anchor points that can provide any reaction forces
-										the truss structure, and an externally applied load is the force the truss structure needs to support. <br/>
+									<p>Having grown up in Colorado, I am used to spending my free time in and around the mountains. From a very early age
+										my dad taught me how to ski
+										    </p>
 
-										<head>
-											<meta charset="UTF-8">
-											<meta name="viewport" content="width=device-width, initial-scale=1.0">
-											<style>
-												.image-container {
-													text-align: center; /* Centers the image */
-												}
-											</style>
-											<title>Center Image</title>
-										</head>
-										<body>
 										
-											<div class="image-container">
-												<img src="images/LinProg/BlankGrid.png" alt="A beautiful scenery"height="270" width="450" />
-												<figcaption>11 x 20 working grid for the problem with the 3 anchors on the left and the applied force on the right. Trusses can connect
-													at nodes. </figcaption>
-											</div>
-										
-										</body>
-
-										</p>
-									<header class="major">
-										<h2></h2>
-										<p>Formulation<br />
-										</p>
-									</header>	
-									<p>
-										The truss structure must have all forces at the nodes summing to zero and stress in the trusses less than the yield strength.
-										To turn the constraints into matrix form some formulation is needed. Each node can theoretically connect with any one of the other 
-										nodes, making there a possible 24,090 connections in the grid, and within the trusses there are equal and opposite forces acting on 
-										each end. In matrix form it looks as follows where U is the internal force in the truss. 
-									</br>
-									</br>
-										<head>
-											<meta charset="UTF-8">
-											<meta name="viewport" content="width=device-width, initial-scale=1.0">
-											<style>
-												.image-container {
-													text-align: center; /* Centers the image */
-												}
-											</style>
-											<title>Center Image</title>
-										</head>
-										<body>
-										
-											<div class="image-container">
-												<img src="images/LinProg/IntForce.png" alt="A beautiful scenery"height="170" width="700" />
-												<figcaption>Formulation for the possible internal forces in each truss. "U" indicates the force, 
-													and the subscript specifies the number of the connected nodes. U<sub>2,1</sub> is the force in the truss from node 2 to 1. </figcaption>
-											</div>
-										</body>
-
-									</br>
-										The internal forces are then broken down into their euclidean components such that force balance can be 
-										calculated in the x and y directions. The sine and cosine of the angles between each node are multiplied through U leaving two matrices with the 
-										x and y components of the internal forces. Next, the force constraints are added to the formulation in the b vector such that the sum of forces at the nodes 
-										is zero with the applied external force. The default form of <i>linprog</i> solves the inequality Ax &#x2264 b, but we want to solve 
-										exactly. Negating and flipping the inequality constraints the equation and allows for certain terms to be solved for exactly. 
-
-										<head>
-											<meta charset="UTF-8">
-											<meta name="viewport" content="width=device-width, initial-scale=1.0">
-											<style>
-												.image-container {
-													text-align: center; /* Centers the image */
-												}
-											</style>
-											<title>Center Image</title>
-										</head>
-										<body>
-										
-											<div class="image-container">
-												<img src="images/LinProg/ForceComp.png" alt="A beautiful scenery"height="200" width="440" />
-												<figcaption>Force balance terms in matrix form with the applied external force acting on node #120. </figcaption>
-											</div>
-										</body>
-									</br>
-										The second constraint in that the stress of each truss must be less than the yield strength. For this excercise the material properties are
-										given in dimensionless units because the main focus isn't material science, rather computational methods. That being said, the yield strength of
-										the material can arbitrarily be set to 8 units of force/area with a 4 unit externally applied force. The cross sectional area of the trusses are also 
-										arbitrarily set to 1 to make calculations easier. The equation for the yield strength condition is simply -S<sub>y</sub> &#x2264 U and U &#x2264 S<sub>y</sub>
-										where S<sub>y</sub> is the yield strength and U is still the total internal force. In matrix form for all nodes, the constraint looks as follows. </br>
-									</p>
-
-
-									<head>
-										<meta charset="UTF-8">
-										<meta name="viewport" content="width=device-width, initial-scale=1.0">
-										<style>
-											.image-container {
-												text-align: center; /* Centers the image */
-											}
-										</style>
-										<title>Center Image</title>
-									</head>
-									<body>
 									
-										<div class="image-container">
-											<img src="images/LinProg/Yield.png" alt="A beautiful scenery"height="110" width="150" />
+									<body>
+										<div class="container">
+											<img src="images/Profile Picture/BikeyBike.jpg" alt="Sample Image" width="400">
+											<p>This is some text next to the image using Flexbox. This method is more flexible and ensures better alignment.</p>
 										</div>
 									</body>
-									A truss will be "turned on" if the connection between two nodes has an internal force that acts to support the external load. Now, if 
-									the matrices were solved as is, there would be quite a few trusses that have very small internal loads and therefore would not be a good use of 
-									materials. By taking advantage of the L1 norm, the trusses with very small internal forces can by nudged to 0 since the weighting penalty of the L1
-									norm moves small values to 0 compared to larger values. This leaves only the trusses that are under significant stress in the truss structure resulting 
-									in a more efficient material allocation. Auxiliary variables are needed to minimize the L1 norm since force values can be both positive and negative. 
-									By using auxiliary variables, the cost function changes from minimizing the unknown directly, and instead changes to the minimization of the auxiliary variables. 
-									In matrix form, the L1 norm with the auxiliary
-									variables looks as follows.  
-								</br>
-								</br>
-								<head>
-									<meta charset="UTF-8">
-									<meta name="viewport" content="width=device-width, initial-scale=1.0">
-									<style>
-										.image-container {
-											text-align: center; /* Centers the image */
-										}
-									</style>
-									<title>Center Image</title>
-								</head>
-								<body>
-								
-									<div class="image-container">
-										<img src="images/LinProg/Auxilary.png" alt="A beautiful scenery"height="90" width="195" />
-									</div>
-								</body>
 
-
-								The last constraint that needs to be formulated is a length penalty since longer trusses are more susceptible to buckling and typically more expensive
-								per unit length compared to shorter ones. A simple way to add a penalty to the cost function is to multiply the length of the truss by its internal 
-								stress. This acts to remove longer trusses even if they are under a large load and instead replace it with multiple shorter trusses. The matrices 
-								change from the previously shown matrix with identities, to the following with the length miltiplied back in. 
-							<br>
-							<br>
-								<head>
-									<meta charset="UTF-8">
-									<meta name="viewport" content="width=device-width, initial-scale=1.0">
-									<style>
-										.image-container {
-											text-align: center; /* Centers the image */
-										}
-									</style>
-									<title>Center Image</title>
-								</head>
-								<body>
-								
-									<div class="image-container">
-										<img src="images/LinProg/LengthPen.png" alt="A beautiful scenery"height="90" width="290" />
-									</div>
-								</body>
-								<header class="major">
-									<h2></h2>
-									<p>Results<br />
-									</p>
-								</header>	
-								The formulation of the problem and constraints is now complete, so in order to solve the problem in MATLAB with <i>linprog</i>, the formulated
-								matrices are combined into a single A and b matrix and ran through the function. <br><br>The output is a vector that containts the force information for the trusses in the final structure. 
-								Trusses under tension are shown in red and trusses under compression are shown in blue. All trusses are idealized and massless and connected via pin connections. There are only interactions
-								between trusses that share nodes, so trusses that cross are considered to be in different planes. 
-
-								<head>
-									<meta charset="UTF-8">
-									<meta name="viewport" content="width=device-width, initial-scale=1.0">
-									<style>
-										.image-container {
-											text-align: center; /* Centers the image */
-										}
-									</style>
-									<title>Center Image</title>
-								</head>
-								<body>
-								
-									<div class="image-container">
-										<img src="images/LinProg/PenalizedStructure.png" alt="A beautiful scenery"height="350" width="600" />
-										<figcaption>Final truss structure with externally applied force. Trusses under tension are shown in red, and trusses under compression are blue. </figcaption>
-									</div>
-								</body>
-								<br>
-								<head>
-									<meta charset="UTF-8">
-									<meta name="viewport" content="width=device-width, initial-scale=1.0">
-									<style>
-										.image-container {
-											text-align: center; /* Centers the image */
-										}
-									</style>
-									<title>Center Image</title>
-								</head>
-								<body>
-								
-									<div class="image-container">
-										<img src="images/LinProg/NonPenStruc.png" alt="A beautiful scenery"height="350" width="585" />
-										<figcaption>Truss structure with the length penalty removed. Far fewer trusses used, but unrealistic in a real application.</figcaption>
-									</div>
-								</body>
-
-								<header class="major">
-									<h2></h2>
-									<p>Project Report<br />
-									</p>
-								</header>
-								If you are in need of a page turner or would like something to read while in a meeting, please take a look at the full project report below. 
-								</br>
-								</br>
-									<head>
-										<meta charset="UTF-8">
-										<meta name="viewport" content="width=device-width, initial-scale=1.0">
-										<title>Full Project Report</title>
-									</head>
-									<body>
+										
 									
-										<iframe src="images/LinProg/Optimal_Project__2.pdf" width="700" height="580"></iframe>
-									</body>
-
 								</div>
 							</section>
 
