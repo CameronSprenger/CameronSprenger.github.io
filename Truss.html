@@ -62,14 +62,7 @@
 										given an applied force and anchor locations. The efficiency of the material usage is defined in a cost function which is formulated
 										to output the desired results by minimizing c<sup>T</sup>x. Various material 
 										properties can be added to the cost function, like buckling and yield strength, by changing certain terms in the cost function.
-										The <i>linprog</i> function in MATLAB takes in inputs c, A, b and minimizes c<sup>T</sup>x subject to Ax=b. 
-										<br/>
-										<br/>
-										For this problem all of the trusses are joined with pin connections 
-										to elimiate the need for bending moment terms, and all truss members have the same material properties and cross sections. 
-										The problem is set up such that there is a grid of possible points the trusses can connect at which greatly reduces the computational 
-										load at the slight cost of accuracy. Three points on the y-axis are considered to be idealized anchor points that can provide any reaction forces
-										the truss structure, and an externally applied load is the force the truss structure needs to support. <br/>
+										The <i>linprog</i> function in MATLAB takes in inputs c, A, b and solves:
 
 										<head>
 											<meta charset="UTF-8">
@@ -84,7 +77,35 @@
 										<body>
 										
 											<div class="image-container">
-												<img src="images/LinProg/BlankGrid.png" alt="A beautiful scenery"height="270" width="450" />
+												<img src="images/LinProg/CosuFunc_Trudd.png" alt="A beautiful scenery" width=30%; height=auto; />
+												
+											</div>
+										
+										</body>
+										
+										<br/>
+										<br/>
+										For this problem all of the trusses are joined with pin connections 
+										to elimiate the need for bending moment terms, and all truss members have the same material properties and cross sections. 
+										The problem is set up such that there is a grid of possible points the trusses can connect at which greatly reduces the computational 
+										load at the slight cost of accuracy. Three points on the y-axis are considered to be idealized anchor points that can provide any reaction forces
+										the truss structure, and an externally applied load is the force the truss structure needs to support. <br/>
+										<br>
+
+										<head>
+											<meta charset="UTF-8">
+											<meta name="viewport" content="width=device-width, initial-scale=1.0">
+											<style>
+												.image-container {
+													text-align: center; /* Centers the image */
+												}
+											</style>
+											<title>Center Image</title>
+										</head>
+										<body>
+										
+											<div class="image-container">
+												<img src="images/LinProg/BlankGrid.png" alt="A beautiful scenery" width=70%; height=auto; />
 												<figcaption>11 x 20 working grid for the problem with the 3 anchors on the left and the applied force on the right. Trusses can connect
 													at nodes. </figcaption>
 											</div>
@@ -117,7 +138,7 @@
 										<body>
 										
 											<div class="image-container">
-												<img src="images/LinProg/IntForce.png" alt="A beautiful scenery"height="170" width="700" />
+												<img src="images/LinProg/IntForce.png" alt="A beautiful scenery" width=100%; height=auto; />
 												<figcaption>Formulation for the possible internal forces in each truss. "U" indicates the force, 
 													and the subscript specifies the number of the connected nodes. U<sub>2,1</sub> is the force in the truss from node 2 to 1. </figcaption>
 											</div>
@@ -143,7 +164,7 @@
 										<body>
 										
 											<div class="image-container">
-												<img src="images/LinProg/ForceComp.png" alt="A beautiful scenery"height="200" width="440" />
+												<img src="images/LinProg/ForceComp.png" alt="A beautiful scenery" width=70%; height=auto; />
 												<figcaption>Force balance terms in matrix form with the applied external force acting on node #120. </figcaption>
 											</div>
 										</body>
@@ -169,7 +190,7 @@
 									<body>
 									
 										<div class="image-container">
-											<img src="images/LinProg/Yield.png" alt="A beautiful scenery"height="110" width="150" />
+											<img src="images/LinProg/Yield.png" alt="A beautiful scenery" width=20%; height=auto; />
 										</div>
 									</body>
 									A truss will be "turned on" if the connection between two nodes has an internal force that acts to support the external load. Now, if 
@@ -195,7 +216,7 @@
 								<body>
 								
 									<div class="image-container">
-										<img src="images/LinProg/Auxilary.png" alt="A beautiful scenery"height="90" width="195" />
+										<img src="images/LinProg/Auxilary.png" alt="A beautiful scenery" width=25%; height=auto; />
 									</div>
 								</body>
 
@@ -219,7 +240,7 @@
 								<body>
 								
 									<div class="image-container">
-										<img src="images/LinProg/LengthPen.png" alt="A beautiful scenery"height="90" width="290" />
+										<img src="images/LinProg/LengthPen.png" alt="A beautiful scenery" width=41%; height=auto; />
 									</div>
 								</body>
 								<header class="major">
@@ -245,7 +266,7 @@
 								<body>
 								
 									<div class="image-container">
-										<img src="images/LinProg/PenalizedStructure.png" alt="A beautiful scenery"height="350" width="600" />
+										<img src="images/LinProg/PenalizedStructure.png" alt="A beautiful scenery" width=90%; height=auto; />
 										<figcaption>Final truss structure with externally applied force. Trusses under tension are shown in red, and trusses under compression are blue. </figcaption>
 									</div>
 								</body>
@@ -263,7 +284,7 @@
 								<body>
 								
 									<div class="image-container">
-										<img src="images/LinProg/NonPenStruc.png" alt="A beautiful scenery"height="350" width="585" />
+										<img src="images/LinProg/NonPenStruc.png" alt="A beautiful scenery" width=87%; height=auto;/>
 										<figcaption>Truss structure with the length penalty removed. Far fewer trusses used, but unrealistic in a real application.</figcaption>
 									</div>
 								</body>
@@ -283,7 +304,7 @@
 									</head>
 									<body>
 									
-										<iframe src="images/LinProg/Optimal_Project__2.pdf" width="700" height="580"></iframe>
+										<iframe src="images/LinProg/Optimal_Project__2.pdf" width=90% height="580"></iframe>
 									</body>
 
 								</div>

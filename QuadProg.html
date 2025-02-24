@@ -58,9 +58,279 @@
 										<p>Project Overview<br />
 										</p>
 									</header>
-									<p>This page is currently being completed, please check out my other optimal design projects in the mean time.    </p>
-									
 
+									For this project, I created a multi-class classifier using quadratic programming and a directed acyclic graph (DAG) decision tree.
+									The model is trained on the MNIST dataset of hand-written digits with values from 0-9. Each image has a resulution of 26x26, totalling
+									to 676 features per image, and therefore a vector space with 676 dimensions. The MNIST dataset contains 70,000 labeled images broken into 60,000 
+									training and 10,000 testing images.  The images are classified through the DAG with n choose 2 
+									binary classifiers that are individually trained on the specific numbers they are classifying. For example, the first classifier in 
+									the decision tree would decide if an input is either not-a-0 or not-a-9 by outputting a -1 or 1 respectively. The quadratic programming 
+									function in MATLAB takes in the inputs H, f, A, and b and solves:
+									<br>
+									<br>
+
+									<head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/QuadProg/QuadProg_Cost.png" alt="A beautiful scenery" width=27%; height=auto; />
+											
+										</div>
+									
+									</body>
+									<br>
+									
+									Each of the 45 binary classifiers in the DAG were trained to maximize the margin between the separating hyperplane and 
+									the two clusters. By doing so, the chance of a miss classification is minimized and the hyperplane is scalable to more data. 
+									The margins are quantified as twice the perpendicular distance from a line of best fit and the closest data points of the different clusters.  
+									<br>
+									<br>
+									<head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/QuadProg/Margin.png" alt="A beautiful scenery" width=60%; height=auto; />
+											<figcaption> 2D representation of feature-based clusters. The line represents the separating hyperplane, and the dotted lines are the margins between two clusters.  </figcaption>
+										</div>
+									
+									</body>
+									<br>
+									<br>
+									<head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/QuadProg/DAG.png" alt="A beautiful scenery" width=90%; height=auto; />
+											<figcaption> DAG decision making structure with 45 binary classifiers. The red arrows indicate a possible path an image can take to be classified
+												as a 5. </figcaption>
+										</div>
+									
+									</body>
+									
+									<br>
+									<br>
+																	
+									<header class="major">
+										<h2></h2>
+										<p>Formulation<br />
+										</p>
+									</header>
+									Formulating the maximization of the margins into the minimization form the function expects 
+									is a matter of negating and inverting the inequality. Max 2/||a||<sub> 2</sub> turns into min ||a||<sub> 2</sub>.
+									In its own this formulation would work well assuming there are no outliers in the data. 
+									<br>
+									<br>
+									Since the margins are defined as being strictly between the closest 2 to 3 points of clusters, erroneous outliers can 
+									have a significant impact on the hyperplane and subsequently accuracy of the classifier. This can be accounted for with the 
+									addition of slack variable which are added to the cost function and allow for flexability in the margins in the case there are outliers in the data. 
+									Ax &le; b changes to Ax &le; b &plusmn; u where "u" is incoorporated into the cost function. An additional variable "&gamma;"" allows the weighting 
+									of the slack variable to be tuned for maximum accuracy. The matrix form of the inequality with the slack variables "u" an d"v" is as follows. 
+
+									<head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/QuadProg/SlackVar.png" alt="A beautiful scenery" width=40%; height=auto;  />
+											
+										</div>
+									
+									</body>
+
+									A<sub>1</sub> and A <sub>2</sub> are matrices that contain the pixel values of the images that binary classifier is trained on. 
+									The classifier for digits 3 and 5 would contain pixel matrices A<sub>3</sub> and A <sub>5</sub>.  A non-negativity constraint 
+									ensures that "u" and "v" remain on their respective sides since each one is defined to be on either the positive or negative 
+									side of the sepatating hyperplane. 
+									<br>
+									<br>
+
+									<head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/QuadProg/NonNeg.png" alt="A beautiful scenery" width=50%; height=auto;  />
+											
+										</div>
+									
+									</body>
+
+									To formulate the cost function into equation form into the equation form from earlier, an H 
+									matrix and f vector are formulated to convert between the two. H is a variation of an identity 
+									matrix with the ones in the elements that align with the elements of a<sub> i</sub>. This takes 
+									the norm of just "a" and not the other variables. 
+									
+									<br>
+									<br>
+									<head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/QuadProg/Convert.png" alt="A beautiful scenery" width=55%; height=auto;  />
+											
+										</div>
+									
+									</body>
+									<br>
+									The final matrix form of the inputs into the quadratic program which outputs a vector "x" 
+									with information on the seperating hyperplane also known as a support vector machine. &gamma; is 
+									than iterated until the classification accuracy is maximized. 
+									
+									<br>
+									<head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/QuadProg/Input.png" alt="A beautiful scenery" width=60%; height=auto;  />
+											
+										</div>
+									
+									</body>
+									<br>
+									&gamma; could realistically be any number in a huge range of magnitudes since the relation 
+									between the weighting of the slack variable and features of the images are random. The range I checked 
+									&gamma; with iterated through values from .001 to 100 so a relation can be drawn. From this I determined a rough 
+									order of magnitude to set &gamma; at even though it wasn't the most optimized value, it yielded good accuracy results.
+
+									<br>
+									<head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/QuadProg/Gamma.png" alt="A beautiful scenery" width=40%; height=auto;  />
+											<figcaption> Orders of magnitude of &gamma; I check to find a starting value. &gamma;=.1 yielded the highest accuracy. </figcaption>
+										</div>
+									
+									</body>
+									<header class="major">
+										<h2></h2>
+										<p>Results<br />
+										</p>
+									</header>
+									The flow of the classification in the DAG is down and to the left if the output from a classifier is positive
+									and down and to the right of the output is negative. I simplified the DAG structure into a matrix form where the 
+									decision flow is reduced. All images start at the top right and either move straight down, or to the left 
+									depending on the output. From this new location, the image is tested with the new classifier until it reaches the 
+									diagonal of the matrix. The final value it lands on is the determined classification of the image. Results are 
+									confirmed by comparing the classified value with the true labeled value.  
+									<br>
+									<br>								
+									<head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/QuadProg/MatDAG.png" alt="A beautiful scenery" width=62%; height=auto;  />
+											<figcaption> Matrix form of DAG. Classifiers are indicated by number, and diagonal values are final guesses for classification. </figcaption>
+										</div>
+									
+									</body>
+
+									<head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/QuadProg/ConfusionMatrix.png" alt="A beautiful scenery" width=80%; height=auto;  />
+											<figcaption>Confusion matrix for testing dataset. Rows indicate guessed classification, and columns indicate 
+												expected classification. Correctly classified numbers are on the diagonal. </figcaption>
+										</div>
+									
+									</body>
+									<br>
+									
+									Analyzing the confusion matrix shows that some numbers were classified with much higher accuracy because of the 
+									separation of the clusters from other numbers. 1 classified with the highest accuracy while 5 was very inaccurate since 
+									the features are similar to 8.
+
+									<br>
+									<br>
 										<header class="major">
 											<h2></h2>
 											<p>Project Report<br />
