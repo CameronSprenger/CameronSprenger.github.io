@@ -58,7 +58,207 @@
 										<p>Project Overview<br />
 										</p>
 									</header>
-									<p>This page is currently being completed, please check out my other optimal design projects in the mean time.   </p>
+									<p>For this project I wrote a linear program formulated to work as an integer linear program to solve sudoku puzzles.
+										The <i>linprog</i> function in MATLAB outputs non-discrete values, but the method I used to solve the conditions of sudoku
+									require integer outputs. I formulated the problem in a way such that it only outputs integer values by using a binary representation
+									system for each number. The value of a square is represented with 9 bits with all zeros except a 1 in the index of the number.
+									 By doing so, the row, column, and block conditions of Sudoku can more easily be formulated in matrix form and solved with <i>linprog</i>. 
+
+									 <head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/Sudoku/Binary2.png" alt="A beautiful scenery" width=50%; height=auto;/>
+											<figcaption>Binary representation of a #2 with my formulation. 1 is in the second index of the vector with length 9. </figcaption>
+										</div>
+									</body>
+									<br>
+
+									By representing integervalues in this form, the three conditions can quickly be checked by summing the vectors of 
+									each individual row, column, or block. If the condition is met, the summation vector will contain a 1 in each of the 9 indices. 
+									<i> linrprog</i> takes inputs c, A, and b and solves the inequality below. The following section shows the matrix formulation for the problem 
+									and the technique used to solve sudoku by turning the inequality form into an equality.
+									<br>
+									<br>
+
+									<head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/LinProg/CosuFunc_Trudd.png" alt="A beautiful scenery" width=35%; height=auto;/>
+											
+										</div>
+									</body>
+									<header class="major">
+										<h2></h2>
+										<p>Formulation<br />
+										</p>
+									</header>
+
+									<b>Note: All of the following matrix formulation is shown for a 4x4 sudoku game for the sake of simplicity because the 
+										actual matrices are too large to show.
+									</b> 
+									<br>
+									<br>
+									Before I formulated the conditions of a completed sudoku game, I needed to define three constraints 
+									to force the output into the binary form I needed. Those being:<br> <br>
+									<ul>
+										<li>Sum of the elements in each vector must equal 1</li>
+										<li>Values in the vector are either 0 or 1 </li>
+										<li>Only one element in the vector can be non-zero</li>
+									</ul>
+									
+								
+									Without the three conditions, the <i>linprog</i> function could output decimal values that still meet the other conditions. 
+
+									<br>
+									<br>
+									I formulated the "A" input matrix so it contains the binary vector information from top left to the bottom right of the 9x9 sudoku grid. 
+									The dimension of A for each constraint is n<sup>2</sup>x n<sup>3</sup>, or 81 x 729 and should only contain 0's and 1's.   
+									The first condition I formulated was the row constraint that takes the binary vectors from each of the 9 rows, and checks 
+									that the summation is a vector of all 1's. x&#x303;<sub>i</sub> represents the binary vector in the i<sup>th</sup> index, and x<sub>i</sub>
+									is the bit within a binary vector. 
+									<br>
+									<br>
+									The formulation for the row condition was a matter of finding the pattern of 1's in the A matrix. The challenge was 
+									placing the 1's in the elements that align with the correct binary vector for the row elements that were checked. Below 
+									is a visualization of the vector summation for the first row of a 4x4 grid. If the summation of the vectors in a row do not equal 
+									all 1's, then one of the games conditions is not met. There is either a duplicate number or missing number in the row in that case.  
+
+									<br>
+									<br>
+									<head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/Sudoku/Summation.png" alt="A beautiful scenery" width=19%; height=auto;/>
+											<figcaption> Binary condition for a row with elements 1, 4, 3, 2 and an output vector of 1, 1, 1, 1</figcaption>
+										</div>
+									</body>
+									<br>
+									<br>
+									Converting this summation into the matrix form of individual elements yields the following:
+									<br>
+									<br>
+									<head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/Sudoku/Indices.png" alt="A beautiful scenery" width=29%; height=auto;/>
+											<figcaption> Representation of the elements in the A matrix that correspond to the desired binary elements.</figcaption>
+										</div>
+									</body>
+									<br>
+									<br>
+
+									<head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/Sudoku/RowIndices.png" alt="A beautiful scenery" width=70%; height=auto;/>
+											<figcaption>Final matrix form of the row constraint for the top row of a 4x4 sudoku.</figcaption>
+										</div>
+									</body>
+									<br>
+									<br>
+
+									<head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/Sudoku/CompleteRowIndices.png" alt="A beautiful scenery" width=100%; height=auto;/>
+											<figcaption> All of the row constraints for a 4x4 sudoku in the form Ax=b. </figcaption>
+										</div>
+									</body>
+									<br>
+									<br>
+									The column and block constraints are exactly the same in terms of methodology with the only difference being which elements the A matrix 
+									is comparing. Below are the final matrix forms of the column and block constraints. Notice the difference in patterns between the two matrices. 
+									
+									<br>
+									<br>
+									<head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/Sudoku/ColumnConstraint.png" alt="A beautiful scenery" width=100%; height=auto;/>
+											<figcaption> Column constraint. Each row of the A matrix represents one column in the grid.</figcaption>
+											<br>
+											<br>
+											<img src="images/Sudoku/BlockConstraint.png" alt="A beautiful scenery" width=100%; height=auto;/>
+											<figcaption> Block Constraint. Rows in the A matrix represent blocks from left to right, top to bottom.  </figcaption>
+										</div>
+									</body>
+									<header class="major">
+										<h2></h2>
+										<p>Results<br />
+										</p>
+									</header>
+
+								     </p>
 										<header class="major">
 											<h2></h2>
 											<p>Project Report<br />
