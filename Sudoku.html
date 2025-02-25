@@ -118,19 +118,6 @@
 									</b> 
 									<br>
 									<br>
-									Before I formulated the conditions of a completed sudoku game, I needed to define three constraints 
-									to force the output into the binary form I needed. Those being:<br> <br>
-									<ul>
-										<li>Sum of the elements in each vector must equal 1</li>
-										<li>Values in the vector are either 0 or 1 </li>
-										<li>Only one element in the vector can be non-zero</li>
-									</ul>
-									
-								
-									Without the three conditions, the <i>linprog</i> function could output decimal values that still meet the other conditions. 
-
-									<br>
-									<br>
 									I formulated the "A" input matrix so it contains the binary vector information from top left to the bottom right of the 9x9 sudoku grid. 
 									The dimension of A for each constraint is n<sup>2</sup>x n<sup>3</sup>, or 81 x 729 and should only contain 0's and 1's.   
 									The first condition I formulated was the row constraint that takes the binary vectors from each of the 9 rows, and checks 
@@ -159,7 +146,7 @@
 									
 										<div class="image-container">
 											<img src="images/Sudoku/Summation.png" alt="A beautiful scenery" width=19%; height=auto;/>
-											<figcaption> Binary condition for a row with elements 1, 4, 3, 2 and an output vector of 1, 1, 1, 1</figcaption>
+											<figcaption> Binary condition for a row with elements 1, 4, 3, 2 and an output vector of 1, 1, 1, 1.</figcaption>
 										</div>
 									</body>
 									<br>
@@ -252,11 +239,255 @@
 											<figcaption> Block Constraint. Rows in the A matrix represent blocks from left to right, top to bottom.  </figcaption>
 										</div>
 									</body>
+									<br>
+									<br>
+									After defining the three game constraints, I defined three constraints 
+									to force the output into the binary form I needed. Those being:<br> <br>
+									<ul>
+										<li>Values in the vector are either 0 or 1 </li>
+										<li>Sum of the elements in each vector must equal 1</li>
+										<li>Only one element in the vector can be non-zero</li>
+									</ul>
+									
+								
+									Without the three conditions, the <i>linprog</i> function could output decimal values that still meet the other conditions. 
+
+									<br>
+									<br>
+									Because I needed binary outputs, two simple inequalities limit the 
+									upper and lower bounds of the output. The output needed to be between 0 and 1, so two inequalities constrain the range. 
+									<br>
+									<br>
+									<head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/Sudoku/0and1.png" alt="A beautiful scenery" width=13%; height=auto;/>
+											<figcaption> Inequality constraints on the variables to limit the upper and lower bounds of the output.</figcaption>
+											
+										</div>
+									</body>
+									<br>
+									
+									<head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/Sudoku/Inequality.png" alt="A beautiful scenery" width=12%; height=auto;/>
+											<figcaption> Inequality broken into two components that match the format of <i>linprog</i> Ax &leq; b  .</figcaption>
+											
+										</div>
+									</body>
+									<head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/Sudoku/InequalityMat.png" alt="A beautiful scenery" width=30%; height=auto;/>
+											<figcaption> Final matrix form for all variables.</figcaption>
+											
+										</div>
+									</body>
+									<br>
+									<br>
+									I formulated the next condition that the sum of the binary vectors must be 1 by adding 1's vector with length <i>n</i> into 
+									the row corresponding to the index of the cell. In total the A matrix for this constraint has n<sup>2</sup> rows for the n<sup>2</sup> cells in the 9x9 
+									grid. This constrains the elements in the binary vector to sum together to 1. 
+									<br>
+									<br>
+									<head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/Sudoku/CellSum.png" alt="A beautiful scenery" width=80%; height=auto;/>
+											<figcaption> 1's vector of length <i>n</i> corresponding to the index of the cell it represents. </figcaption>
+											
+										</div>
+									</body>
+									<br>
+									<br>
+
+									The last of the three constraints is only 1 element in the binary vector can be "on". The L1 norm is a quick 
+									and powerful way to push outputs to 0 and reduce the total number of variables that are "on". The L1 norm minimizes 
+									the sum of the residuals and adds auxiliary variables into the formulation. If you are interested in the derivation 
+									of the matrix form for the L1 norm, please take a look at my project report below. 
+									The final matrix form of the L1 norm and auxiliary variables is seen below. 
+									<br>
+									<br>
+									<head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/Sudoku/L1Norm.png" alt="A beautiful scenery" width=45%; height=auto;/>
+											<figcaption> L1 norm and auxiliary variables called with identity matrices with dimensions of n<sup>3</sup>xn<sup>3</sup>. </figcaption>
+											
+										</div>
+									</body>
+									<br>
+									<br>
+									The formulation of the problem is complete, and the input matrices are combined into a single A and b matrix. the input 
+									vector c is represented by 0's in all elements that correspond to the normal variables, and 1's that correspond with the
+									auxiliary variables. Seen below are the final matrix form of the inputs. 
+									<br>
+									<br>
+									<head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/Sudoku/FinalMatInput.png" alt="A beautiful scenery" width=65%; height=auto;/>
+											
+											
+										</div>
+									</body>
+
+
 									<header class="major">
 										<h2></h2>
 										<p>Results<br />
 										</p>
 									</header>
+									The program solved a few test sudoku puzzles with no issue, but ran into problems with harder puzzles. It had trouble 
+									converging to a single solution in integer form, so it would split the difference and output decimal values despite the 
+									constraints. Each of the constraints is rigid except the L1 norm that heavily weights outputs to be 0, so for the harder puzzles 
+									it would get overpowered and split numbers into decimal values . Below is an example of a puzzle that solved correctly with 
+									integer values, and another puzzle that solved incorrectly. 
+									<br>
+									<br>
+									<head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/Sudoku/Solved.png" alt="A beautiful scenery" width=40%; height=auto;/>
+											<figcaption> Puzzle that solved with the expected output of integer values. </figcaption>
+											
+										</div>
+									</body>
+									<br>
+									<br>
+									<head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/Sudoku/DecimalOut.png" alt="A beautiful scenery" width=40%; height=auto;/>
+											<figcaption> Puzzle that did not converge to integers and forced decimal output. </figcaption>
+											</div>
+									</body>
+									<br>
+									<br>
+									At first glance it looks like the decimal values in the output could be rounded up or down, but if you look 
+									at the formulation of the binary vectors you'll see that isn't the case. The true values the solver was picking between 
+									are the components that sum to the output. For example an outputted 2.5 is not choosing between a 2 or a 3, but  rather a 1 or a 4 
+									because a .5 in the elements in the binary vector for a 1 and 4 sum to 2.5 as seen below.
+									<br>
+									<br>
+									
+									<head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/Sudoku/DecimalSum.png" alt="A beautiful scenery" width=40%; height=auto;/>
+											<figcaption> Solver unable to pick 1 or 4 as an output. 1 and 4 outputs 2.5. </figcaption>
+											</div>
+									</body>
+									<br>
+									<br>
+									<head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/Sudoku/Try.png" alt="A beautiful scenery" width=40%; height=auto;/>
+											<figcaption> Additional code checks both values until one solves correctly.  </figcaption>
+											</div>
+									</body>
 
 								     </p>
 										<header class="major">
