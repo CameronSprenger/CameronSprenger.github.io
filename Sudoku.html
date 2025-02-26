@@ -58,7 +58,7 @@
 										<p>Project Overview<br />
 										</p>
 									</header>
-									<p>For this project I wrote a linear program formulated to work as an integer linear program to solve sudoku puzzles.
+									<p>For this project I wrote a linear program formulated to function as an integer linear program to solve sudoku puzzles.
 										The <i>linprog</i> function in MATLAB outputs non-discrete values, but the method I used to solve the conditions of sudoku
 									require integer outputs. I formulated the problem in a way such that it only outputs integer values by using a binary representation
 									system for each number. The value of a square is represented with 9 bits with all zeros except a 1 in the index of the number.
@@ -489,12 +489,66 @@
 											<figcaption> Additional code checks both values until one solves correctly.  </figcaption>
 											</div>
 									</body>
+									<head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/Sudoku/SolvedInt.png" alt="A beautiful scenery" width=40%; height=auto;/>
+											<figcaption> Correctly solved puzzle with integers.  </figcaption>
+											</div>
+									</body>
+
 									<br>
 									<br>
 									With the addition of this code snippet the program is able to make a decision between the two numbers and converge 
 									to a final solution with integer values. A fun test is to solve the worlds hardest sudoku puzzle with the program since it 
 									was mathematically designed to only have a single solution. Below is the outputted solution to the worlds hardest sudoku puzzle using 
 									my linear programming code. 
+									<br>
+									<br>
+									<head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/Sudoku/Sudoku.png" alt="A beautiful scenery" width=40%; height=auto;/>
+											<figcaption>Worlds hardest Sudoku puzzle design to only have a single solution.  </figcaption>
+											</div>
+									</body>
+									<head>
+										<meta charset="UTF-8">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+										<style>
+											.image-container {
+												text-align: center; /* Centers the image */
+											}
+										</style>
+										<title>Center Image</title>
+									</head>
+									<body>
+									
+										<div class="image-container">
+											<img src="images/Sudoku/HardestInt.png" alt="A beautiful scenery" width=40%; height=auto;/>
+											<figcaption>Solution to the worlds hardest sudoku solved with the additional decision code.  </figcaption>
+											</div>
+									</body>
 
 								     </p>
 										<header class="major">
