@@ -57,7 +57,30 @@
 								</div>
 								<div class="container">
 									<header class="major">
+
+										<b>Note:</b> This page is still being completed. Some content and sections may be missing. 
 										<h2>SAE Baja 2022-23</h2>
+										<br>
+										<head>
+											<meta charset="UTF-8">
+											<meta name="viewport" content="width=device-width, initial-scale=1.0">
+											<style>
+												.image-container {
+													text-align: center; /* Centers the image */
+												}
+											</style>
+											<title>Center Image</title>
+										</head>
+										<body>
+										
+											<div class="image-container">
+												<img src="images/Baja/BajaFront.png" alt="A beautiful scenery" width=80%; height=auto; />
+												
+											</div>
+										
+										</body>
+										<br>
+										<br>
 										<h3>Project Overview </h3>
 
 										SAE Baja is a competition project hosted by universities around the world that challenges groups of students to 
@@ -67,15 +90,188 @@
 										years vehicle to set design goals for improvements in each of the sub-systems. 
 										<br>
 										<br>
-										For the 2022-23 Baja team, I was the drivetrain team lead which involved leading much of the design and integration of the 
-										sub-system into the complete vehicle. 
-										
+										The year was broken into two sections with the fall semester designated for the design and modeling of the vehicle and the 
+										spring semester for manufacturing and testing. The design iterations were worked 
+										through and analyzed in CAD software including SolidWorks, Lotus, and ANSYS until they met desired design goals. The drafting was
+										fully completed before the end of the first semester so we could begin manufacturing at the start
+										of the spring semester to finish before the deadline of competition.      
+
+																		
 										<br>
 										<br>
 								
-										<h3>Design </h3>
+										<h3>Design Goals</h3>
 
-										<h3>Components</h3>
+										We used the data collected from the previous years car to set design goals and define metrics for our drivetrain. 
+										The goal is to have marginal improvements over previous years cars, so we looked at pain points and performance from the 
+										last car to improve upon. First and foremost, the drivetrain's performance can be defined as the vehicles top speed and
+										acceleration, so we aimed to increase the top speed from 17 mph to 25 mph, and to reduce the 100 ft drag time by 1-2 seconds. 
+										Secondly, the serviceability of the drivetrain has historically been a challenge because it is so interconnected with all of the 
+										other sub-systems. For some components in the drivetrain, most of the rear end of the car had to be removed just to access 
+										a single part which was extremely time consuming. Lastly, reducing the weight of the vehicle greatly improves performance 
+										because each team is allotted a standard 10 HP engine, so power to weight directly corresponds to accleration and top speed. 
+										Our initial goal was to reduce the total system weight of the drivetrain by 30%, but later reduced it to 15% after further analysis. 
+
+										<br>
+										<br>
+
+
+
+
+										<ul>
+											<li>Demonstrate 4WD/AWD ability</li>
+											<li>Reduce weight of drivetrain by 30%</li>
+											<li>Increase serviceability and reliability </li>
+										</ul>	
+
+										<h3>Drivetrain Configurations</h3>
+
+										In the initial design phase we had two fully specced drivetrain configurations we were considering between. Both 
+										had the same initial powertrain from the engine to a cental transfer case, but one configuration had an off-the-shelf 
+										lockable rear differential and the other had a custom fully locked rear differential. Both configurations had the option to run 
+										different CTV's which gives us more tunability of the drivetrain when testing.  
+										<br>
+										<br>
+										The design advantages of the off-the-shelf configuration were increased reliability and an additional drive mode since 
+										the rear differential was switchable. This came at the cost of weight as the complete system was approximately 5 lbs more than 
+										the custom configuration. The custom differential was technically more challenging to design, so 
+										it would serve as a better learning experience than the other configuration. Both the configurations used the same off-the-shelf front 
+										differential which had an underdrive feature we were interested in. This feature allows the front wheels to disconnect when there is ample 
+										traction which reduces power loss through the front wheels, increasing the efficency of the powertrain. For the feature to function, the rear 
+										differential needed to have a 10-15% smaller gear reduction than the front diff. This creates a difference in output velocities in the front 
+										and rear wheels which mechanically disengages the front wheels. 
+										<br>
+										<br>
+
+										<head>
+											<meta charset="UTF-8">
+											<meta name="viewport" content="width=device-width, initial-scale=1.0">
+											<style>
+												.image-container {
+													text-align: center; /* Centers the image */
+												}
+											</style>
+											<title>Center Image</title>
+										</head>
+										<body>
+										
+											<div class="image-container">
+												<img src="images/Baja/BlockDiagram.png" alt="A beautiful scenery" width=70%; height=auto; />
+												<figcaption>Block diagrams of the two drivetrain configurations with gear ratios and CVT options. Underdrive 
+													gear ratios are met with a smaller gear reduction in the rear.  </figcaption>
+											</div>
+										
+										</body>
+										<br>
+										<br>
+										
+
+										<head>
+											<meta charset="UTF-8">
+											<meta name="viewport" content="width=device-width, initial-scale=1.0">
+											<style>
+												.image-container {
+													text-align: center; /* Centers the image */
+												}
+											</style>
+											<title>Center Image</title>
+										</head>
+										<body>
+										
+											<div class="image-container">
+												<img src="images/Baja/CustomConfig.png" alt="A beautiful scenery" width=70%; height=auto; />
+											</div>
+										
+										</body>
+										<br>
+										<br>
+
+										<head>
+											<meta charset="UTF-8">
+											<meta name="viewport" content="width=device-width, initial-scale=1.0">
+											<style>
+												.image-container {
+													text-align: center; /* Centers the image */
+												}
+											</style>
+											<title>Center Image</title>
+										</head>
+										<body>
+										
+											<div class="image-container">
+												<img src="images/Baja/CustomExploded.png" alt="A beautiful scenery" width=70%; height=auto; />
+												<figcaption>Configuration with a custom rear differential and Hilliard front differential. Additional mounting 
+													hardware was needed to interface between the half shafts and output shafts of the diff. 
+
+												</figcaption>
+											</div>
+										
+										</body>
+										<br>
+										<br>
+
+										<body>
+										
+											<div class="image-container">
+												<img src="images/Baja/HilliardConfig.png" alt="A beautiful scenery" width=70%; height=auto; />
+											</div>
+										
+										</body>
+										<br>
+										<br>
+
+										<head>
+											<meta charset="UTF-8">
+											<meta name="viewport" content="width=device-width, initial-scale=1.0">
+											<style>
+												.image-container {
+													text-align: center; /* Centers the image */
+												}
+											</style>
+											<title>Center Image</title>
+										</head>
+										<body>
+										
+											<div class="image-container">
+												<img src="images/Baja/HilliardExploded.png" alt="A beautiful scenery" width=70%; height=auto; />
+												<figcaption>Configuration with off-the-shelf rear differential and matching Hilliard front differential. </figcaption>
+											</div>
+										
+										</body>
+										<br>
+										<br>
+										
+
+										<h3>System Integration</h3>
+
+										<head>
+											<meta charset="UTF-8">
+											<meta name="viewport" content="width=device-width, initial-scale=1.0">
+											<style>
+												.image-container {
+													text-align: center; /* Centers the image */
+												}
+											</style>
+											<title>Center Image</title>
+										</head>
+										<body>
+										
+											<div class="image-container">
+												<img src="images/Baja/Engine.png" alt="A beautiful scenery" width=70%; height=auto; />
+												<figcaption>Alignment of the input cones for the two CVT configurations. Different belt lengths of 10" and 
+													8.5" had to be accounted for.  </figcaption>
+											</div>
+										
+										</body>
+
+										<h3>Deliverables</h3>
+
+										<br>
+										Expo poster presented at SAE Baja Oregon and the engineering expo at CU Boulder. 
+										<br>
+										<br>
+										<embed src="images/Baja/Baja SAE 2022-2023 Expo Poster.pdf" type="application/pdf" width="100%" height="600px" />
+
 									</header>
 									
 										
